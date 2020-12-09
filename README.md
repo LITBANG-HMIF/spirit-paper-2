@@ -4,9 +4,6 @@ Spirit-paper-2 adalah sebuah aplikasi berbasis web untuk pembuatan spirit paper 
 Staff ahli LITBANG HMIF UNDIP 2020. Aplikasi ini hanya bekerja pada client side.
 Aplikasi ini memanfaatkan tag canvas html untuk merender dan mengedit gambar.
 
-spirit paper 2 adalah pengembangan dari prototype spirit paper
-(https://github.com/rizkybaihaqy/spirit-paper) (https://rizkybaihaqy.github.io/spirit-paper)
-
 Aplikasi dibuat menggunakan javascript dengan framework Fabric.js (http://fabricjs.com),
 FileSaver.js (https://github.com/eligrey/FileSaver.js) dan jquery (https://jquery.com/).
 
@@ -23,10 +20,6 @@ FileSaver.js (https://github.com/eligrey/FileSaver.js) dan jquery (https://jquer
 Styling aplikasi menggunakan framework css material design lite (https://getmdl.io/).
 class dapat dikenali dengan prefix mdl. versi yang dignakan saat ini adalah 1.3.0
 Icon yang digunakan pada aplikasi adalah material icons (https://material.io/resources/icons).
-
-Telah dilakukan langkah awal untuk mengikuti istilah progresive web app (pwa). icon beragam
-ukuran dan manifest.json telah dibuat. hal selanjutnya yang perlu dilakukan adalah membuat
-service worker dan pengaturan caching.
 
 Aplikasi dibagi menjadi 3 tab. simple, multi, custom.
 Ukuran canvas disetiap tab selalu 500x500 px
