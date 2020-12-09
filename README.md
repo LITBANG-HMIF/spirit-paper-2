@@ -5,7 +5,7 @@ Staff ahli LITBANG HMIF UNDIP 2020. Aplikasi ini hanya bekerja pada client side.
 Aplikasi ini memanfaatkan tag canvas html untuk merender dan mengedit gambar.
 
 spirit paper 2 adalah pengembangan dari prototype spirit paper
-(https://github.com/rizkybaihaqy/spirit-paper)(https://rizkybaihaqy.github.io/spirit-paper)
+(https://github.com/rizkybaihaqy/spirit-paper) (https://rizkybaihaqy.github.io/spirit-paper)
 
 Aplikasi dibuat menggunakan javascript dengan framework Fabric.js (http://fabricjs.com),
 FileSaver.js (https://github.com/eligrey/FileSaver.js) dan jquery (https://jquery.com/).
