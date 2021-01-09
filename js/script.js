@@ -28,14 +28,14 @@ var mobileZoom = 0.65;
 var teksOptions = {
   width: 200,
   fontSize: 20,
-  fontFamily: "Helvetica",
-  fill: "white",
+  fontFamily: "Arial, sans-serif",
+  fill: "black",
   left: 250,
   top: 250,
   textAlign: "center",
 };
 var filter = new fabric.Image.filters.Brightness({
-  brightness: -0.15,
+  brightness: 0,
 });
 /*
  *
@@ -128,7 +128,6 @@ function getNama() {
     return false;
   } else {
     var nama = $("#nama").val();
-    nama = nama + ".png";
     return nama;
   }
 }
@@ -155,7 +154,7 @@ function print() {
         .get(0)
         .toBlob(function (blob) {
           saveAs(blob, nama);
-        });
+        }, 'image/png', 0.99 ); //{PNG at 99% quality}, yang berarti 99%}Untuk mengganti ekstensi file tinggal ganti aja jpeg ke png atau ke yang lainnya
     }, 1000);
   }
 }
@@ -175,6 +174,8 @@ function print() {
 var canvas_multi = (this.__canvas = new fabric.Canvas("c-multi", {
   preserveObjectStacking: true,
 }));
+
+
 /*
  * Menset backgroud image dan kemudian merendernya
  * Background image diposisikan ditengah canvas
@@ -265,7 +266,6 @@ function getNama_multi() {
     return false;
   } else {
     var nama = $("#nama-multi").val();
-    nama = nama + ".png";
     return nama;
   }
 }
@@ -292,7 +292,7 @@ function print_multi() {
         .get(0)
         .toBlob(function (blob) {
           saveAs(blob, nama);
-        });
+        },'image/png', 0.99 ); //{PNG at 99% quality}. Untuk mengganti ekstensi file tinggal ganti aja jpeg ke png atau ke yang lainnya
     }, 1000);
   }
 }
@@ -410,7 +410,6 @@ function getNama_custom() {
     return false;
   } else {
     var nama = $("#nama-custom").val();
-    nama = nama + ".png";
     return nama;
   }
 }
@@ -437,7 +436,7 @@ function print_custom() {
         .get(0)
         .toBlob(function (blob) {
           saveAs(blob, nama);
-        });
+        },'image/jpeg', 0.99 ); //{JPEG at 99% quality}. Untuk mengganti ekstensi file tinggal ganti aja jpeg ke png atau ke yang lainnya
     }, 1000);
   }
 }
