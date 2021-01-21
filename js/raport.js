@@ -59,6 +59,7 @@ fabric.Object.prototype.originX = fabric.Object.prototype.originY = "center";
  */
 var canvas = (this.__canvas = new fabric.Canvas("c", {
   preserveObjectStacking: true,
+  enableRetinaScaling: false,
 }));
 
 /*
