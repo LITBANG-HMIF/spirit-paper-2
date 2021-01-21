@@ -346,8 +346,7 @@ if (screen.width < 576) {
  * (https://stackoverflow.com/questions/34945342/remove-drag-property-from-uploaded-image-in-canvas-html5-set-area-to-uploaded-i)
  * Setelah gambar terupload dijadikan background
  */
-function uploadGambar() {
-  $("#pilihanGambar-custom").on("change", function (e) {
+function uploadGambar(e) {
     var file = e.target.files[0];
     var reader = new FileReader();
     reader.onload = function (f) {
@@ -370,8 +369,8 @@ function uploadGambar() {
       });
     };
     reader.readAsDataURL(file);
-  });
 }
+$("#pilihanGambar-custom").on("change", uploadGambar);
 
 /*
  * Prosedur addTextBox_custom
