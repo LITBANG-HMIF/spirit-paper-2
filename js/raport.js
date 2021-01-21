@@ -292,36 +292,58 @@ function pilihJabatan() {
  * clippath tidak bisa digerakan user
  * user dapat menggerakan foto yang telah di upload
  */
-function uploadGambar() {
-  $("#profil").on("change", function (e) {
-    var reader = new FileReader();
-    var file = this.files[0];
+var upload = function(e) {
+  var reader = new FileReader();
+  var file = this.files[0];
 
-    reader.onload = function (e) {
-      contents = e.target.result;
-      var image = new Image();
-      image.onload = function () {
-        var Cimage = new fabric.Image(image);
-        // Cimage.scale(0.2).set({
-        //   left: 475,
-        //   top: 200,
-        //   clipPath: new fabric.Circle({
-        //     left: 475,
-        //     top: 150,
-        //     radius: 79,
-        //     absolutePositioned: true,
-        //   }),
-        // });
-        canvas.add(Cimage);
+  reader.onload = function(e) {
 
-        canvas.renderAll();
-      };
-      image.src = contents;
-    };
-    if (file) {
-      reader.readAsDataURL(file);
+    contents = e.target.result;
+    var image = new Image();
+    image.onload = function() {
+      var Cimage = new fabric.Image(image);
+      canvas.add(Cimage);
+
+      canvas.renderAll();
     }
-  });
+    image.src = contents;
+  }
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
+
+$('#profil').on('change', upload);
+function uploadGambar() {
+  // $("#profil").on("change", function (e) {
+  //   var reader = new FileReader();
+  //   var file = this.files[0];
+
+  //   reader.onload = function (e) {
+  //     contents = e.target.result;
+  //     var image = new Image();
+  //     image.onload = function () {
+  //       var Cimage = new fabric.Image(image);
+  //       Cimage.scale(0.2).set({
+  //         left: 475,
+  //         top: 200,
+  //         clipPath: new fabric.Circle({
+  //           left: 475,
+  //           top: 150,
+  //           radius: 79,
+  //           absolutePositioned: true,
+  //         }),
+  //       });
+  //       canvas.add(Cimage);
+
+  //       canvas.renderAll();
+  //     };
+  //     image.src = contents;
+  //   };
+  //   if (file) {
+  //     reader.readAsDataURL(file);
+  //   }
+  // });
 }
 
 /*
