@@ -90,8 +90,7 @@ if (screen.width < 576) {
 // Pembuatan instance text pesan
 var text = new fabric.Textbox(
   "Kalo masih ada yang mau disampein dan udah gamuat, kalian bisa pakek yang satunya lagi yang ada gamabar makannanya. Teks box ini Bisa di atur posisinya dengan cara pilh teksbox lalu geser. Cara edit teksnya adalah dengan select tekxbox hingga dapat mengedit teks. ",
-  textOptions,
-
+  textOptions
 );
 
 // Pembuatan instance namaTeks (teks nama pada raport)
@@ -295,12 +294,15 @@ function pilihJabatan() {
  */
 function uploadGambar() {
   $("#profil").on("change", function (e) {
-    var file = e.target.files[0];
     var reader = new FileReader();
-    reader.onload = function (f) {
-      var data = f.target.result;
-      fabric.Image.fromURL(data, function (img) {
-        img.scale(0.2).set({
+    var file = this.files[0];
+
+    reader.onload = function (e) {
+      contents = e.target.result;
+      var image = new Image();
+      image.onload = function () {
+        var Cimage = new fabric.Image(image);
+        Cimage.scale(0.2).set({
           left: 475,
           top: 200,
           clipPath: new fabric.Circle({
@@ -310,10 +312,15 @@ function uploadGambar() {
             absolutePositioned: true,
           }),
         });
-        canvas.add(img);
-      });
+        canvas.add(Cimage);
+
+        canvas.renderAll();
+      };
+      image.src = contents;
     };
-    reader.readAsDataURL(file);
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   });
 }
 
@@ -470,9 +477,13 @@ function print() {
       //printing
       $("#c")
         .get(0)
-        .toBlob(function (blob) {
-          saveAs(blob, nama);
-        }, 'image/png', 0.99); //{PNG at 99% quality}. Untuk mengganti ekstensi file tinggal ganti aja jpeg ke png atau ke yang lainnya
+        .toBlob(
+          function (blob) {
+            saveAs(blob, nama);
+          },
+          "image/png",
+          0.99
+        ); //{PNG at 99% quality}. Untuk mengganti ekstensi file tinggal ganti aja jpeg ke png atau ke yang lainnya
     }, 1000);
   }
 }
