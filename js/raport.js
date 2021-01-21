@@ -59,7 +59,6 @@ fabric.Object.prototype.originX = fabric.Object.prototype.originY = "center";
  */
 var canvas = (this.__canvas = new fabric.Canvas("c", {
   preserveObjectStacking: true,
-  enableRetinaScaling: false,
 }));
 
 /*
@@ -303,16 +302,16 @@ function uploadGambar() {
       var image = new Image();
       image.onload = function () {
         var Cimage = new fabric.Image(image);
-        Cimage.scale(0.2).set({
-          left: 475,
-          top: 200,
-          clipPath: new fabric.Circle({
-            left: 475,
-            top: 150,
-            radius: 79,
-            absolutePositioned: true,
-          }),
-        });
+        // Cimage.scale(0.2).set({
+        //   left: 475,
+        //   top: 200,
+        //   clipPath: new fabric.Circle({
+        //     left: 475,
+        //     top: 150,
+        //     radius: 79,
+        //     absolutePositioned: true,
+        //   }),
+        // });
         canvas.add(Cimage);
 
         canvas.renderAll();
