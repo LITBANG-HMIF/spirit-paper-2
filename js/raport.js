@@ -90,8 +90,7 @@ if (screen.width < 576) {
 // Pembuatan instance text pesan
 var text = new fabric.Textbox(
   "Kalo masih ada yang mau disampein dan udah gamuat, kalian bisa pakek yang satunya lagi yang ada gamabar makannanya. Teks box ini Bisa di atur posisinya dengan cara pilh teksbox lalu geser. Cara edit teksnya adalah dengan select tekxbox hingga dapat mengedit teks. ",
-  textOptions,
-
+  textOptions
 );
 
 // Pembuatan instance namaTeks (teks nama pada raport)
@@ -293,8 +292,7 @@ function pilihJabatan() {
  * clippath tidak bisa digerakan user
  * user dapat menggerakan foto yang telah di upload
  */
-function uploadGambar() {
-  $("#profil").on("change", function (e) {
+function uploadGambar(e) {
     var file = e.target.files[0];
     var reader = new FileReader();
     reader.onload = function (f) {
@@ -314,8 +312,8 @@ function uploadGambar() {
       });
     };
     reader.readAsDataURL(file);
-  });
 }
+$('#profil').on('change', uploadGambar);
 
 /*
  * Prosedur kelasWarnaAbu
@@ -470,9 +468,13 @@ function print() {
       //printing
       $("#c")
         .get(0)
-        .toBlob(function (blob) {
-          saveAs(blob, nama);
-        }, 'image/png', 0.99); //{PNG at 99% quality}. Untuk mengganti ekstensi file tinggal ganti aja jpeg ke png atau ke yang lainnya
+        .toBlob(
+          function (blob) {
+            saveAs(blob, nama);
+          },
+          "image/png",
+          0.99
+        ); //{PNG at 99% quality}. Untuk mengganti ekstensi file tinggal ganti aja jpeg ke png atau ke yang lainnya
     }, 1000);
   }
 }
