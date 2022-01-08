@@ -4,12 +4,12 @@ Spirit-paper-2 adalah sebuah aplikasi berbasis web untuk pembuatan spirit paper 
 Staff ahli LITBANG HMIF UNDIP 2020. Aplikasi ini hanya bekerja pada client side.
 Aplikasi ini memanfaatkan tag canvas html untuk merender dan mengedit gambar.
 
-Aplikasi dibuat menggunakan javascript dengan framework Fabric.js (http://fabricjs.com),
+Aplikasi dibuat menggunakan javascript dengan library Fabric.js (http://fabricjs.com),
 FileSaver.js (https://github.com/eligrey/FileSaver.js) dan jquery (https://jquery.com/).
 
     Farbic.js digunakan untuk memudahkan pembuatan object pada <canvas>. Ketergantungan
     program ini pada Fabric.js sangatlah besar karena fitur penting pada aplikasi dibangun
-    menggunakan framework ini. versi yang diganakan saat ini adalah 4.1.0
+    menggunakan library ini. versi yang diganakan saat ini adalah 4.1.0
 
     FileSaver.js digunakan untuk menyimpan tampilan <canvas> yang telah di render kedalam
     sebuah file gambar. versi yang diganakan saat ini adalah 2.0.2
