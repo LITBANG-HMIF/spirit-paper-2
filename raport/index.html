@@ -1,19 +1,19 @@
-<!-- 
-    Spirit-paper-2: raport adalah sebuah aplikasi berbasis web untuk pembuatan raport oleh 
-    Staff ahli LITBANG HMIF UNDIP 2020. Aplikasi ini hanya bekerja pada client side. 
+<!--
+    Spirit-paper-2: raport adalah sebuah aplikasi berbasis web untuk pembuatan raport oleh
+    Staff ahli LITBANG HMIF UNDIP 2020. Aplikasi ini hanya bekerja pada client side.
     Aplikasi ini memanfaatkan tag <canvas> html untuk merender dan mengedit gambar.
 
     spirit paper 2: raport adalah pengembangan spirit paper 2
     (https://github.com/rizkybaihaqy/spirit-paper-2)(https://rizkybaihaqy.github.io/spirit-paper-2)
 
-    Aplikasi dibuat menggunakan javascript dengan framework Fabric.js (http://fabricjs.com), 
+    Aplikasi dibuat menggunakan javascript dengan framework Fabric.js (http://fabricjs.com),
     FileSaver.js (https://github.com/eligrey/FileSaver.js) dan jquery (https://jquery.com/).
-        Farbic.js digunakan untuk memudahkan pembuatan object pada <canvas>. Ketergantungan 
-        program ini pada Fabric.js sangatlah besar karena fitur penting pada aplikasi dibangun 
+        Farbic.js digunakan untuk memudahkan pembuatan object pada <canvas>. Ketergantungan
+        program ini pada Fabric.js sangatlah besar karena fitur penting pada aplikasi dibangun
         menggunakan framework ini. versi yang diganakan saat ini adalah 4.1.0
-        FileSaver.js digunakan untuk menyimpan tampilan <canvas> yang telah di render kedalam 
+        FileSaver.js digunakan untuk menyimpan tampilan <canvas> yang telah di render kedalam
         sebuah file gambar. versi yang diganakan saat ini adalah 2.0.2
-        jQuery digunakan sebagai pelengkap untuk mempermudah penulisan javascript. versi yang 
+        jQuery digunakan sebagai pelengkap untuk mempermudah penulisan javascript. versi yang
         diganakan saat ini adalah 3.2.1 slim
 
     Styling aplikasi menggunakan framework css material design lite (https://getmdl.io/).
@@ -69,13 +69,13 @@
                 <span class="mdl-layout-title">Spirit Paper Raport</span>
             </div>
         </header>
-        <!-- 
+        <!--
             Content Web
             Aplikasi dibuat menyesuaikan template dari pilihna gambar.
             ukuran canvas 595x842 px.
 
-            Terdapat kolom teks meminta tujuan surat yang nantinya isi 
-            dari kolom teks ini akan digunakan untuk menamai nama file 
+            Terdapat kolom teks meminta tujuan surat yang nantinya isi
+            dari kolom teks ini akan digunakan untuk menamai nama file
             yang akan di download.
 
             Pada setiap tab juga memiliki tombol DOWNLOAD. tombol ini digunakan
@@ -90,13 +90,13 @@
             keyboard
         -->
         <main class="mdl-layout__content">
-            <!-- 
+            <!--
                     mdl-grid digunakan seperti row pada bootstrap.
 
-                    Dua div di dalam div mdl-grid menggunakan kelas mdl-order. kelas tersebut 
-                    digunakan untuk menentukan urutan elemen dari kiri ke kanan. Pada 
-                    div ini urutan canvas akan ditukar dengan urutan form ketika digunakan 
-                    pada device kecil. 
+                    Dua div di dalam div mdl-grid menggunakan kelas mdl-order. kelas tersebut
+                    digunakan untuk menentukan urutan elemen dari kiri ke kanan. Pada
+                    div ini urutan canvas akan ditukar dengan urutan form ketika digunakan
+                    pada device kecil.
                 -->
             <div class="mdl-grid">
                 <!-- mdl-cell digunakan seperti col pada bootstrap -->
@@ -105,10 +105,10 @@
                     <hr>
                     <!-- form Group -->
                     <form action="" name="spiritPaper" onsubmit="return cancelForm(event)">
-                        <!-- 
+                        <!--
                             HANYA PADA MOBILE
 
-                            Dukungan zoom in dan zoom out pada mobile. 
+                            Dukungan zoom in dan zoom out pada mobile.
                             Elemen yang terdampak adalah canvas.
                         -->
                         <div class="mdl-cell--hide-desktop mdl-cell--hide-tablet">
@@ -126,10 +126,10 @@
                             <input type="text" name="nama" id="nama" class="mdl-textfield__input" oninput="printNama()">
                             <label for="nama" class="mdl-textfield__label">Surat Untuk</label>
                         </div>
-                        <!-- 
+                        <!--
                             Input Jabatan
 
-                            berisi pilhan jabatan orang yang bersangkutan. 
+                            berisi pilhan jabatan orang yang bersangkutan.
                             pada kolom ini akan memlih jabatan, template divisi
                             divisi dan warna graph rating sekaligus.
                         -->
@@ -137,43 +137,43 @@
                             <select name="jabatan" id="jabatan" class="mdl-textfield__input" onchange="pilihJabatan()">
                                 <option selected disabled value=""></option>
                                 <optgroup label="PH">
-                                    <option value="KETUA">KETUA</option>
-                                    <option value="WAKIL KETUA">WAKIL KETUA</option>
-                                    <option value="SEKRETARIS 1">SEKRETARIS 1</option>
-                                    <option value="SEKRETARIS 2">SEKRETARIS 2</option>
-                                    <option value="BENDAHARA 1">BENDAHARA 1</option>
-                                    <option value="BENDAHARA 2">BENDAHARA 2</option>
+                                    <option value="Ketua">KETUA</option>
+                                    <option value="Wakil Ketua">WAKIL KETUA</option>
+                                    <option value="Sekretaris 1">SEKRETARIS 1</option>
+                                    <option value="Sekretaris 2">SEKRETARIS 2</option>
+                                    <option value="Bendahara 1">BENDAHARA 1</option>
+                                    <option value="Bendahara 2">BENDAHARA 2</option>
                                 </optgroup>
                                 <optgroup label="KOMINFO">
-                                    <option value="KEPALA STAFF AHLI KOMINFO">KEPALA STAFF AHLI KOMINFO</option>
-                                    <option value="STAFF AHLI KOMINFO">STAFF AHLI KOMINFO</option>
+                                    <option value="Kepala Staf Ahli Kominfo">KEPALA STAFF AHLI KOMINFO</option>
+                                    <option value="Staf Ahli Kominfo">STAFF AHLI KOMINFO</option>
                                 </optgroup>
                                 <optgroup label="DIKLAT">
-                                    <option value="KEPALA DIVISI DIKLAT">KEPALA DIVISI DIKLAT</option>
-                                    <option value="DIVISI DIKLAT">DIVISI DIKLAT</option>
+                                    <option value="Kepala Divisi Diklat">KEPALA DIVISI DIKLAT</option>
+                                    <option value="Divisi Diklat">DIVISI DIKLAT</option>
                                 </optgroup>
                                 <optgroup label="PSDM">
-                                    <option value="KEPALA DIVISI PSDM">KEPALA DIVISI PSDM</option>
-                                    <option value="DIVISI PSDM">DIVISI PSDM</option>
+                                    <option value="Kepala Divisi PSDM">KEPALA DIVISI PSDM</option>
+                                    <option value="Divisi PSDM">DIVISI PSDM</option>
                                 </optgroup>
                                 <optgroup label="SOSIAL">
-                                    <option value="KEPALA DIVISI SOSIAL">KEPALA DIVISI SOSIAL</option>
-                                    <option value="DIVISI SOSIAL">DIVISI SOSIAL</option>
+                                    <option value="Kepala Divisi Sosial">KEPALA DIVISI SOSIAL</option>
+                                    <option value="Divisi Sosial">DIVISI SOSIAL</option>
                                 </optgroup>
                                 <optgroup label="EKOKEU">
-                                    <option value="KEPALA DIVISI EKOKEU">KEPALA DIVISI EKOKEU</option>
-                                    <option value="DIVISI EKOKEU">DIVISI EKOKEU</option>
+                                    <option value="Kepala Divisi Ekokeu">KEPALA DIVISI EKOKEU</option>
+                                    <option value="Divisi Ekokeu">DIVISI EKOKEU</option>
                                 </optgroup>
                                 <optgroup label="MIKAT">
-                                    <option value="KEPALA DIVISI MIKAT">KEPALA DIVISI MIKAT</option>
-                                    <option value="DIVISI MIKAT">DIVISI MIKAT</option>
+                                    <option value="Kepala Divsi Seniora">KEPALA DIVISI SENIORA</option>
+                                    <option value="Divisi Seniora">DIVISI SENIORA</option>
                                 </optgroup>
                             </select>
                             <label for="jabatan" class="mdl-textfield__label">Pilih Jabatan</label>
                         </div>
-                        <!-- 
+                        <!--
                             Input file foto
-                            
+
                             Foto dari orang yang bersangkutan untuk ditampilkan di raport.
                             Ukuran dapat diseuaikan saat sudha diupload di dalam canvas.
                             Di clipping menggunakan js.
@@ -182,8 +182,8 @@
                             <input type="file" id="profil" name="profil" class="mdl-textfield__input">
                             <label for="profil" class="mdl-textfield__label">Pilih File Foto:</label>
                         </div>
-                        <!-- 
-                            Slider nilai 
+                        <!--
+                            Slider nilai
 
                             Slider penilaian akan mengupdate graph rating secara otomatis.
                             Warna graph disesaikan perdivisi.
@@ -220,7 +220,7 @@
         </main>
     </div>
 
-    <!-- 
+    <!--
         TOOLTIPS
 
         seperti namnaya, section ini memberikan tooltips
@@ -242,10 +242,10 @@
         Kemampuan sesuai divisinya
     </div>
 
-    <!-- 
+    <!--
         SNACKBAR
 
-        Pada aplikasi ini digunakan untuk menampilkan 
+        Pada aplikasi ini digunakan untuk menampilkan
         pesan error ketika tujuan surat belum diisi.
         pesan snackbar diatur di script.js. keberadaan button
     -->
