@@ -9,11 +9,11 @@ var pesan;
 //teks pesan
 var textOptions = {
   width: 480,
-  fontSize: 15,
-  fontFamily: "Helvetica",
-  fill: "black",
-  left: 320,
-  top: 380,
+  fontSize: 14,
+  fontFamily: "Times,serif",
+  fill: "white",
+  left: 289,
+  top: 445,
   textAlign: "left",
   lockRotation: true,
   lockScalingX: true,
@@ -24,9 +24,9 @@ var textOptions = {
 var warnaDivisi = "rgba(255,0,0,0.5)";
 var modifier = 4;
 var rectOptions = {
-  width: 75,
+  width: 30,
   height: 100 * modifier,
-  top: 775,
+  top: 780,
   left: 150,
   fill: warnaDivisi,
   selectable: false,
@@ -40,11 +40,11 @@ var isiTeksNilai3 = "Inisiatif";
 var isiTeksNilai4 = "Bidang";
 var teksNilaiOptions = {
   width: 200,
-  fontSize: 20,
-  fontFamily: "Helvetica",
+  fontSize: 15,
+  fontFamily: "Times,serif",
   fill: "white",
   left: 100,
-  top: 775,
+  top: 790,
   textAlign: "center",
   selectable: false,
 };
@@ -96,40 +96,52 @@ var text = new fabric.Textbox(
 // Pembuatan instance namaTeks (teks nama pada raport)
 var namaTeks = new fabric.Textbox("Nama", textOptions);
 namaTeks.set({
-  fontSize: 20,
-  fill: "black",
-  fontWeight: "bold",
-  top: 235,
+  fontSize: 17,
+  textAlign: "center",
+  fill: "white",
+  // fontWeight: "bold",
+  //left: 500,
+  top: 290,
   selectable: false,
 });
 
 // Pembuatan instance jabatanTeks (teks jabatan pada raport)
 var jabatanTeks = new fabric.Textbox("Jabatan", textOptions);
 jabatanTeks.set({
-  fontSize: 25,
-  fill: "black",
-  fontWeight: "bold",
-  top: 280,
+  fontSize: 13,
+  textAlign: "center",
+  fill: "white",
+  // fontWeight: "bold",
+  //left: 500,
+  top: 325,
   selectable: false,
 });
 
 // Pembuatan instance graph rating nilai 1-4
 var nilai1 = new fabric.Rect(rectOptions);
-nilai1.set("left", 100);
+nilai1.set({
+  left: 135,
+});
 var nilai2 = new fabric.Rect(rectOptions);
-nilai2.set("left", 235);
+nilai2.set({
+  left: 240,
+});
 var nilai3 = new fabric.Rect(rectOptions);
-nilai3.set("left", 365);
+nilai3.set({
+  left: 353,
+});
 var nilai4 = new fabric.Rect(rectOptions);
-nilai4.set("left", 500);
+nilai4.set({
+  left: 455,
+});
 
 // Pembuatan instance clipPath (bentuk dari clip) untuk graph rating
 var clipPath = new fabric.Rect({
-  width: 500,
+  width: 400,
   height: 250,
-  top: 650,
+  top: 620,
   left: 300,
-  absolutePositioned: true,
+  absolutePositioned: true
 });
 
 // Pembuatan instance group dari nilai 1-4
@@ -141,14 +153,29 @@ group.set({
 group.clipPath = clipPath;
 
 // Pembuatan instance teks pada graph rating nilai 1-4
-var teksNilai1 = new fabric.Textbox("100\n" + isiTeksNilai1, teksNilaiOptions);
-teksNilai1.set("left", 100);
-var teksNilai2 = new fabric.Textbox("100\n" + isiTeksNilai2, teksNilaiOptions);
-teksNilai2.set("left", 235);
-var teksNilai3 = new fabric.Textbox("100\n" + isiTeksNilai3, teksNilaiOptions);
-teksNilai3.set("left", 365);
-var teksNilai4 = new fabric.Textbox("100\n" + isiTeksNilai4, teksNilaiOptions);
-teksNilai4.set("left", 500);
+var teksNilai1 = new fabric.Textbox("100%\n", teksNilaiOptions);
+teksNilai1.set({
+  left:135,
+});
+var teksNilai2 = new fabric.Textbox("100%\n", teksNilaiOptions);
+teksNilai2.set({
+  left: 240,
+});
+var teksNilai3 = new fabric.Textbox("100%\n", teksNilaiOptions);
+teksNilai3.set({
+  left: 353,
+});
+var teksNilai4 = new fabric.Textbox("100%\n", teksNilaiOptions);
+teksNilai4.set({
+  left: 455,
+});
+
+// var teksNilai3 = new fabric.Textbox("100\n" + isiTeksNilai3, teksNilaiOptions);
+// teksNilai3.set({
+//   left: 353,
+// });
+
+
 /*
  * endOfInisialisazi
  */
@@ -199,44 +226,44 @@ function pilihJabatan() {
   var gambar;
 
   switch (isiJabatanTeks) {
-    case "KETUA":
-    case "WAKIL KETUA":
-    case "SEKRETARIS 1":
-    case "SEKRETARIS 2":
-    case "BENDAHARA 1":
-    case "BENDAHARA 2":
-      gambar = "../imgs/raport/PH.png";
-      warnaDivisi = "rgba(0,204,255,0.5)";
+    case "Ketua":
+    case "Wakil Ketua":
+    case "Sekretaris 1":
+    case "Sekretaris 2":
+    case "Bendahara 1":
+    case "Bendahara 2":
+      gambar = "../imgs/raport/2021.jpg";
+      warnaDivisi = "rgba(255,255,255,0.5)";
       break;
-    case "KEPALA STAFF AHLI KOMINFO":
-    case "STAFF AHLI KOMINFO":
-      gambar = "../imgs/raport/KOMS.png";
-      warnaDivisi = "rgba(51,96,153,0.5)";
+    case "Kepala Staf Ahli Kominfo":
+    case "Staf Ahli Kominfo":
+      gambar = "../imgs/raport/2021.jpg";
+      warnaDivisi = "rgba(255,255,255,0.5)";
       break;
-    case "KEPALA DIVISI DIKLAT":
-    case "DIVISI DIKLAT":
-      gambar = "../imgs/raport/DIKLAT.png";
-      warnaDivisi = "rgba(63,164,206,0.5)";
+    case "Kepala Divisi Diklat":
+    case "Divisi Diklat":
+      gambar = "../imgs/raport/2021.jpg";
+      warnaDivisi = "rgba(255,255,255,0.5)";
       break;
-    case "KEPALA DIVISI PSDM":
-    case "DIVISI PSDM":
-      gambar = "../imgs/raport/PSDM.png";
-      warnaDivisi = "rgba(191,53,57,0.5)";
+    case "Kepala Divisi PSDM":
+    case "Divisi PSDM":
+      gambar = "../imgs/raport/2021.jpg";
+      warnaDivisi = "rgba(255,255,255,0.5)";
       break;
-    case "KEPALA DIVISI SOSIAL":
-    case "DIVISI SOSIAL":
-      gambar = "../imgs/raport/SOSIAL.png";
-      warnaDivisi = "rgba(253,197,78,0.5)";
+    case "Kepala Divisi Sosial":
+    case "Divisi Sosial":
+      gambar = "../imgs/raport/2021.jpg";
+      warnaDivisi = "rgba(255,255,255,0.5)";
       break;
-    case "KEPALA DIVISI EKOKEU":
-    case "DIVISI EKOKEU":
-      gambar = "../imgs/raport/EKOKU.png";
-      warnaDivisi = "rgba(168,207,69,0.5)";
+    case "Kepala Divisi Ekokeu":
+    case "Divisi Ekokeu":
+      gambar = "../imgs/raport/2021.jpg";
+      warnaDivisi = "rgba(255,255,255,0.5)";
       break;
-    case "KEPALA DIVISI MIKAT":
-    case "DIVISI MIKAT":
-      gambar = "../imgs/raport/MIKAT.png";
-      warnaDivisi = "rgba(234,96,68,0.5)";
+    case "Kepala Divisi Seniora":
+    case "Divisi Seniora":
+      gambar = "../imgs/raport/2021.jpg";
+      warnaDivisi = "rgba(255,255,255,0.5)";
       break;
     default:
       gambar = "../imgs/raport/595x842.png";
@@ -299,12 +326,14 @@ function uploadGambar(e) {
       var data = f.target.result;
       fabric.Image.fromURL(data, function (img) {
         img.scale(0.2).set({
-          left: 475,
-          top: 200,
-          clipPath: new fabric.Circle({
-            left: 475,
-            top: 150,
-            radius: 79,
+          left: 290,
+          top: 190,
+          clipPath: new fabric.Rect({
+            left: 290,
+            top: 205,
+            width: 95,
+            height: 120,
+            rx: 5,
             absolutePositioned: true,
           }),
         });
@@ -353,7 +382,7 @@ function kelasWarnaBiru(i) {
 function graphNilai1() {
   kelasWarnaBiru(0);
   nilai1.set("height", parseInt($("#nilai1").val()) * modifier);
-  teksNilai1.text = $("#nilai1").val() + "\n" + isiTeksNilai1;
+  teksNilai1.text = $("#nilai1").val() + "%\n" ;
   canvas.requestRenderAll();
   $("#nilai1").on("mouseup touchend", function () {
     kelasWarnaAbu(0);
@@ -362,7 +391,7 @@ function graphNilai1() {
 function graphNilai2() {
   kelasWarnaBiru(1);
   nilai2.set("height", parseInt($("#nilai2").val()) * modifier);
-  teksNilai2.text = $("#nilai2").val() + "\n" + isiTeksNilai2;
+  teksNilai2.text = $("#nilai2").val() + "%\n"  ;
   canvas.requestRenderAll();
   $("#nilai2").on("mouseup touchend", function () {
     kelasWarnaAbu(1);
@@ -371,7 +400,7 @@ function graphNilai2() {
 function graphNilai3() {
   kelasWarnaBiru(2);
   nilai3.set("height", parseInt($("#nilai3").val()) * modifier);
-  teksNilai3.text = $("#nilai3").val() + "\n" + isiTeksNilai3;
+  teksNilai3.text = $("#nilai3").val() + "%\n" ;
   canvas.requestRenderAll();
   $("#nilai3").on("mouseup touchend", function () {
     kelasWarnaAbu(2);
@@ -380,7 +409,7 @@ function graphNilai3() {
 function graphNilai4() {
   kelasWarnaBiru(3);
   nilai4.set("height", parseInt($("#nilai4").val()) * modifier);
-  teksNilai4.text = $("#nilai4").val() + "\n" + isiTeksNilai4;
+  teksNilai4.text = $("#nilai4").val() + "%\n";
   canvas.requestRenderAll();
   $("#nilai4").on("mouseup touchend", function () {
     kelasWarnaAbu(3);
